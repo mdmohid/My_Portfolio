@@ -37,8 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main'
+    
+    'main',
+    'tailwind',
+    'theme',
+    
 ]
+
+TAILWIND_APP_NAME = "theme"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
