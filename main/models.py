@@ -45,3 +45,37 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
+      
+      
+
+class Project(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True)
+
+    short_description = models.TextField()
+    description = models.TextField()
+
+    technologies = models.CharField(
+        max_length=500,
+        help_text="Separate technologies with commas."
+    )
+
+    image = models.ImageField(
+        upload_to="projects/",
+        blank=True,
+        null=True
+    )
+
+    github_url = models.URLField(blank=True)
+    live_url = models.URLField(blank=True)
+
+    featured = models.BooleanField(default=False)
+    order = models.PositiveIntegerField(default=0)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["order", "-created_at"]
+
+    def __str__(self):
+        return self.title
