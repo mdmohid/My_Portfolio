@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from django.contrib import admin
-from .models import Education, SkillCategory, Skill, Project
+from .models import Education, SkillCategory, Skill, Project, ContactMessage
 
 
 @admin.register(Education)
@@ -61,3 +61,33 @@ class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {
         "slug": ("title",)
     }
+    
+    
+    
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = (
+        "name",
+        "email",
+        "subject",
+        "is_read",
+        "created_at",
+    )
+
+    list_filter = (
+        "is_read",
+        "created_at",
+    )
+
+    list_editable = ("is_read",)
+
+    search_fields = (
+        "name",
+        "email",
+        "subject",
+        "message",
+    )
+
+    readonly_fields = ("created_at",)
+
+    ordering = ("-created_at",)
