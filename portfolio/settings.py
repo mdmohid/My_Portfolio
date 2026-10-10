@@ -27,6 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#configuration to run in mobile devices with same ipv4 address
+# ALLOWED_HOSTS = [
+#     "127.0.0.1",
+#     "localhost",
+#     "192.168.1.69",
+# ]
+
 
 # Application definition
 
